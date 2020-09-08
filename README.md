@@ -1,24 +1,60 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+|username|string|null: false|
+### Association
+- has_many :posts
 
-Things you may want to cover:
+## placesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false|
+|explanation|text|
+### Association
+- has_many :posts
 
-* Ruby version
 
-* System dependencies
+## postsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: true|
+|image_id|integer|null: true, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|place_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :place
+- has_many :images_tags
 
-* Configuration
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|src|string|null: false|
+|posts_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :post
+- has_many :images_tags
+- has_many  :tags,  through:  :images_tags
 
-* Database creation
+## tagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+### Association
+- has_many :images_tags
+- has_many  :images,  through:  :images_tags
 
-* Database initialization
+## images_tagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image_id|integer|null: false, foreign_key: true|
+|tag_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :image
+- belongs_to :tag
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
