@@ -1,0 +1,19 @@
+<div class="postform">
+  <%= form_with(model: [@place,@picture], local: true) do |form| %>
+    <h3>新規投稿</h3>
+    
+    <%= form.fields_for :pictures do |picture| %>
+      <%= picture.label :src, class: 'Form__inputImage' do %>
+        <%= icon('far', 'image', class: 'Form__icon') %>
+        <%= form.file_field :src, class: 'Hidden' %>
+      <% end %>
+    <% end %>
+
+    <%# <%= form.text_area :pictures, placeholder: "text" , rows: "10" %> %>
+    <%= form.submit "SEND" %>
+  <% end %>
+</div>
+
+
+<%= render "footer" %>
+

@@ -1,0 +1,36 @@
+<%= render "header" %>
+<div class= "sub_header">
+  <div class= "sub_left">
+    <p>スレッド一覧</p>
+    <%= link_to new_place_path,class:"newplace" do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
+  </div>
+  <p class= "sub_right">pick up pictures</P>
+</div>
+<div class= "placebox">
+  <div class= "leftbox">
+    <ul>
+      <% @places.each do |place| %>
+        <%= link_to place_path(place.id) do %>
+          <li>
+            <p><%= place.title %></p>
+            <p><%= place.updated_at %></p>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <div class= "rightbox">
+    <% @pictures.each do |p| %>
+      <%= link_to place_picture_path(p.place_id, p.id) do %>
+        <%= image_tag p.src.url %>
+      <% end %>
+    <% end %>
+          
+
+    
+    
+  </div>
+</div>
+<%= render "footer" %>

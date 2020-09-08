@@ -1,0 +1,137 @@
+/* place indexのcss */
+.sub_header {
+  display: flex;
+  .sub_left {
+    width: calc(100vw / 2.7);
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 2px;
+    padding-left: 10px;
+    border: solid;
+    border-color: lightcoral;
+    color: lightcoral;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    .newplace {
+      margin-right: 30px;
+      position: relative;
+      i {
+        font-size: 0.7em;
+        position: absolute;
+        right: 5px;
+        bottom: 7px;
+        color: lightcoral;
+      } 
+    }
+  }
+  .sub_right {
+    border: solid;
+    border-color: lightcoral;
+    border-radius: 15px;
+    color: lightcoral;
+    text-align: center;
+    font-size: 20px;
+    font-family: serif;
+    height: 40px;
+    width: 100vw;
+    margin: 5px;
+  }
+}
+
+.placebox {
+  height: calc(100vh - 190px);
+  display: flex;
+  .leftbox {
+    width: calc(100vw / 2.5);
+    background-color: lightgray;
+    li {
+      height: 80px;
+      font-size: 15px;
+      border: outset;
+      border-color: silver;
+      /* border-bottom: 1px; */
+    }
+    overflow: scroll;
+    
+  }
+  .rightbox {
+    background-color: white;
+    width: 100vw;
+    overflow: scroll;
+    img {
+      height: 200px;
+      width: 200px;
+    }
+  }
+}
+
+
+
+
+
+
+
+/* place showのview */
+
+.thread_title {
+  height: 100px;
+  background-color: gray;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.thread {
+  min-height: calc(100vh - 190px);
+  padding: 10px;
+  .post {
+    border-width: 1px;
+    display: inline-block;
+    border-style: none solid solid none;
+    border-color: #ddd;
+    background-color: #efefef;
+    margin-left: 10px;
+    margin-bottom: 8px;
+    padding: 8px;
+    &__child {
+      .timestamp {
+        color: gray;
+      }
+    }
+    
+  }
+  .picture_box {
+    border-width: 1px;
+    display: inline-block;
+    border-style: none solid solid none;
+    border-color: #ddd;
+    background-color: #efefef;
+    margin-left: 10px;
+    margin-bottom: 8px;
+    padding: 8px;
+    .timestamp {
+      color: gray;
+    }
+    
+    img {
+      height: 200px;
+      width: 200px;
+    }
+    
+  }
+  
+}
+
+
+
+
+
+
+// place newのcss
+
+.postplace {
+  height: calc(100vh - 90px);
+  background-color: ivory;
+}
