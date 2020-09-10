@@ -1,7 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_place, only: [:show, :new, :create]
   def index
-    @picture = Picture.find(params[:id])
+    # @picture = Picture.find(params[:id])
   end
 
   def show
@@ -15,6 +15,7 @@ class PicturesController < ApplicationController
 
   def new
     @picture = Picture.new
+
     @pictures = @place.pictures
     @tag = Tag.new
   end
@@ -56,16 +57,22 @@ class PicturesController < ApplicationController
     #   flash.now[:alert] = 'メッセージを入力してください。'
     #   render :new
     # end
+
   end
 
   private
 
   def picture_params
-    params.require(:picture).permit(:src)
-    .merge(place_id: params[:place_id])
+    params.require(:picture).permit(:src).merge(place_id: params[:place_id])
   end
+
+  
 
   def set_place
     @place = Place.find(params[:place_id])
+  end
+
+  def set_picture
+    @picture = Picture.find(params[:place_id])
   end
 end
