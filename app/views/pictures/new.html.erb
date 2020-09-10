@@ -8,12 +8,23 @@
         <%= form.file_field :src, class: 'Hidden' %>
       <% end %>
     <% end %>
-
-    <%# <%= form.text_area :pictures, placeholder: "text" , rows: "10" %> %>
+    <br>
+    <br>
+    <p>ハッシュタグ入力欄</p>
+    <%= form.fields_for :tags do |fin| %>
+      <div class="form-group">
+      <%= fin.label :name %>
+      <%= fin.text_field :name %>
+    <% end %>
+      
+    <br>
     <%= form.submit "SEND" %>
   <% end %>
+  
 </div>
 
-
 <%= render "footer" %>
+
+
+
 
