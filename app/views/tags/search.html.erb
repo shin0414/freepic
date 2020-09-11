@@ -1,0 +1,12 @@
+<%= form_with(url: search_tags_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "タグを検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+<div class="contents_row">
+  <% @tags.each do |t| %>
+    <% t.pictures.each do |pic| %>
+      <%= image_tag pic.src.url %>
+    <% end %>
+  <% end %>
+</div>
+<%= render "footer" %>

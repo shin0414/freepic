@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_045625) do
+ActiveRecord::Schema.define(version: 2020_09_10_131801) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "src"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_09_10_045625) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "hashbody"
+    t.text "text"
     t.index ["place_id"], name: "index_pictures_on_place_id"
   end
 
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_09_10_045625) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_tags_on_name", length: 30
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
