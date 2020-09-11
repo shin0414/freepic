@@ -1,0 +1,16 @@
+.search-form {
+  text-align: center;
+  padding-top: 20px;
+  background-color: gray;
+  height: 60px;
+}
+
+.contents_row {
+  background-color: lightgray;
+  min-height: calc(100vh - 170px);
+  img {
+    height: 250px;
+    width: 250px;
+    margin: 10px;
+  }
+}

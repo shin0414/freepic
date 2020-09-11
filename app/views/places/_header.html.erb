@@ -1,17 +1,30 @@
 <header class="header">
   <div class="header__1">
-    <h1 class="grid-6"><a href="/">フリピク</a></h1>
+    <h1 class="grid-1"><a href="/">フリピク</a></h1>
   </div>
   <div class="header__2">
-    <form action="cgi-bin/example.cgi" method="post" class="serch">
+    <%= form_with(url: search_tags_path, local: true, method: :get, class: "search-form") do |form| %>
       <p>画像検索</p>
-      <input type="search" name="search" placeholder="キーワードを入力">
+      <%= form.text_field :keyword, placeholder: "タグを検索する", class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
+      
+      <%# <input type="search" name="search" placeholder="キーワードを入力">
       <input type="submit" name="submit" value="検索">
-    </form>
+    </form> %>
   </div>
   <div class="header__3">
-    <%= link_to new_user_session_path do %>
-      <p>Login</p>
+    <% if user_signed_in? %>
+      <div class="user_nav grid-6">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        
+      </div>
+    <% else %>
+      <div class="grid-2">
+        <%= link_to "ログイン", new_user_session_path, class: "post" %>
+        <br>
+        <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+      </div>
     <% end %>
   </div>
 </header>

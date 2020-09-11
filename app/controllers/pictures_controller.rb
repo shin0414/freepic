@@ -16,54 +16,25 @@ class PicturesController < ApplicationController
   def new
     @picture = Picture.new
 
-    @pictures = @place.pictures
-    @tag = Tag.new
+    # @pictures = @place.pictures
   end
 
   def create
-    # 順番入れ替え不可
-    
-    # tag_name = params[:picture][:name]
-    # tag = Tag.create(name: tag_name)
-    
-    # picture = Picture.new(picture_params)
-    # picture.save
+    picture = Picture.create(picture_params)
 
-    # PictureTag.create(picture_id: picture.id, tag_id: tag.id)
-  
-    tag_name = params[:picture][:name]
-    tag_name1 = params[:picture][:name1]
-    tag_name2 = params[:picture][:name2]
-    tag = Tag.create(name: tag_name)
-    tag1 = Tag.create(name: tag_name1)
-    tag2 = Tag.create(name: tag_name2)
-    
-    picture = Picture.new(picture_params)
-    picture.save
-
-    PictureTag.create(picture_id: picture.id, tag_id: tag.id)
-    PictureTag.create(picture_id: picture.id, tag_id: tag1.id)
-    PictureTag.create(picture_id: picture.id, tag_id: tag2.id)
-
-
-
-
-    # @picture = @place.pictures.new(picture_params)
-    
-    # if @picture.save
-    #   redirect_to @place
-    # else
-    #   @pictures = @place.pictures
-    #   flash.now[:alert] = 'メッセージを入力してください。'
-    #   render :new
-    # end
-
+    if picture.save
+      redirect_to @place
+    else
+      @posts = @place.posts
+      flash.now[:alert] = '投稿に失敗しました'
+      render :new
+    end
   end
 
   private
 
   def picture_params
-    params.require(:picture).permit(:src).merge(place_id: params[:place_id])
+    params.require(:picture).permit(:src, :text, :tags_ids).merge(place_id: params[:place_id])
   end
 
   

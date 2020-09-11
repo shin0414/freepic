@@ -8,11 +8,9 @@
         <%= form.file_field :src, class: 'Hidden' %>
       <% end %>
     <% end %>
+    
+    <%= form.text_area :text, placeholder: "text" , rows: "20" %>
 
-
-    <%= form.text_field :name, placeholder:"タグの名前" %>
-    <%= form.text_field :name1, placeholder:"タグの名前" %>
-    <%= form.text_field :name2, placeholder:"タグの名前" %>
 
     <%= form.submit "SEND" %>
   <% end %>
