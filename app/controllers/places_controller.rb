@@ -28,7 +28,7 @@ class PlacesController < ApplicationController
     end
   end
   def place_params
-    params.require(:place).permit(:title, :explanation)
+    params.require(:place).permit(:title, :explanation).merge(user_id: current_user.id)
   end
 
   def destroy

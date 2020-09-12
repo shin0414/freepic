@@ -1,12 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_place
   def index
-    @posts = @place.posts.includes(:images)
+    @posts = @place.posts.all
   end
 
   def new
     @post = Post.new
-    @post.images.new
     @posts = @place.posts
   end
 
@@ -25,7 +24,7 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:text,images_attributes: [:src, :id, :_dstroy])
-    .merge(place_id: params[:place_id])
+    .merge(place_id: params[:place_id]).merge(user_id: current_user.id)
   end
 
   def set_place
