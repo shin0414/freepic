@@ -5,7 +5,9 @@
 <div class="contents_row">
   <% @tags.each do |t| %>
     <% t.pictures.each do |pic| %>
-      <%= image_tag pic.src.url %>
+      <%= link_to place_picture_path(pic.place_id,pic.id) do %>
+        <%= image_tag pic.src.url %>
+      <% end %>
     <% end %>
   <% end %>
 </div>

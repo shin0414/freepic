@@ -2,14 +2,7 @@
   <%= form_with(model: [@place,@post], local: true) do |form| %>
     <h3>新規投稿</h3>
     <%= form.text_area :text, placeholder: "text" , rows: "10" %>
-    
-    
-    <%= form.fields_for :images do |image| %>
-      <%= image.label :src, class: 'Form__inputImage' do %>
-        <%= icon('far', 'image', class: 'Form__icon') %>
-        <%= form.file_field :src, class: 'Hidden' %>
-      <% end %>
-    <% end %>
+
     <%= form.submit "SEND" %>
   <% end %>
 </div>

@@ -8,8 +8,8 @@
     margin-left: 2px;
     padding-left: 10px;
     border: solid;
-    border-color: lightcoral;
-    color: lightcoral;
+    border-color: rgb(132, 114, 175);
+    color:  rgb(132, 114, 175);
     border-radius: 15px;
     display: flex;
     justify-content: space-between;
@@ -22,15 +22,15 @@
         position: absolute;
         right: 5px;
         bottom: 7px;
-        color: lightcoral;
+        color: rgb(132, 114, 175);
       } 
     }
   }
   .sub_right {
     border: solid;
-    border-color: lightcoral;
+    border-color: rgb(132, 114, 175);
     border-radius: 15px;
-    color: lightcoral;
+    color: rgb(132, 114, 175);
     text-align: center;
     font-size: 20px;
     font-family: serif;
@@ -86,6 +86,20 @@
 .thread {
   min-height: calc(100vh - 190px);
   padding: 10px;
+  display: flex;
+  .left_thread {
+    width: 50vw;
+    border: solid;
+    border-color: rgb(132, 114, 175);
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+  .right_thread {
+    width: 50vw;
+    border: solid;
+    border-color: rgb(132, 114, 175);
+    border-radius: 10px;
+  }
   .post {
     border-width: 1px;
     display: inline-block;

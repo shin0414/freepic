@@ -5,6 +5,7 @@
 @import "modules/posts";
 @import "modules/pictures";
 @import "modules/tags";
+@import "modules/user";
 
 body {
   margin: 0 ;
@@ -46,7 +47,6 @@ a {
 }
 
 footer {
-  
   background-color: gray;
   box-sizing: border-box;
   height: 90px;
