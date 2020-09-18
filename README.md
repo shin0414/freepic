@@ -15,8 +15,10 @@
 |------|----|-------|
 |title|string|null: false|
 |explanation|text|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - has_many :posts
+- belongs_to :user
 
 
 ## postsテーブル
@@ -31,30 +33,32 @@
 - belongs_to :place
 - has_many :images_tags
 
-## imagesテーブル
+## picturesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |src|string|null: false|
-|posts_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|place_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :post
-- has_many :images_tags
-- has_many  :tags,  through:  :images_tags
+- belongs_to :place
+- has_many :pictures_tags
+- has_many  :tags,  through:  :pictures_tags
 
 ## tagsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
 ### Association
-- has_many :images_tags
-- has_many  :images,  through:  :images_tags
+- has_many :pictures_tags
+- has_many  :pictures,  through:  :pictures_tags
 
-## images_tagsテーブル
+## pictures_tagsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image_id|integer|null: false, foreign_key: true|
+|picture_id|integer|null: false, foreign_key: true|
 |tag_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :image
+- belongs_to :picture
 - belongs_to :tag
 

@@ -47,6 +47,7 @@
     width: calc(100vw / 2.5);
     background-color: lightgray;
     li {
+      overflow: scroll;
       height: 80px;
       font-size: 15px;
       border: outset;
@@ -57,6 +58,8 @@
     
   }
   .rightbox {
+    background-image: image-url('D073030B-FFF3-4D2C-A5C8-1F3AFB6A34D3.PNG');
+    padding: 10px;
     background-color: white;
     width: 100vw;
     overflow: scroll;
@@ -81,6 +84,11 @@
   color: white;
   display: flex;
   justify-content: space-between;
+  overflow: scroll;
+  i {
+    margin-top: 20px;
+    margin-right: 25px;
+  }
 }
 
 .thread {
@@ -93,12 +101,40 @@
     border-color: rgb(132, 114, 175);
     border-radius: 10px;
     margin-right: 10px;
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      padding:0px 50px 0px 40px;
+      border: solid;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: 25px;
+      color: white;
+      background-color: rgb(132, 114, 175);
+      i {
+        font-size: 36px;
+      }
+    }
   }
   .right_thread {
     width: 50vw;
     border: solid;
     border-color: rgb(132, 114, 175);
     border-radius: 10px;
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      padding:0px 50px 0px 40px;
+      border: solid;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: 25px;
+      color: white;
+      background-color: rgb(132, 114, 175);
+      i {
+        font-size: 36px;
+      }
+    }
   }
   .post {
     border-width: 1px;
@@ -146,6 +182,9 @@
 // place newのcss
 
 .postplace {
-  height: calc(100vh - 90px);
-  background-color: ivory;
+  height: calc(100vh - 140px);
+  background-color: lightgray;
+  text-align: center;
+  padding-top: 50px;
+  
 }

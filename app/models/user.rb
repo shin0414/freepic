@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
 
-  has_many :places
-  has_many :posts
-  has_many :pictures
+  has_many :places, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :pictures, dependent: :destroy
 end

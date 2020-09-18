@@ -1,6 +1,7 @@
 <div class="postform">
   <%= form_with(model: [@place,@picture], local: true) do |form| %>
     <h3>新規投稿</h3>
+    <br>
     
     <%= form.fields_for :pictures do |picture| %>
       <%= picture.label :src, class: 'Form__inputImage' do %>
@@ -9,11 +10,20 @@
       <% end %>
     <% end %>
     
-    <%= form.text_area :text, placeholder: "text" , rows: "20" %>
+    <%= form.text_area :text, placeholder: "#○○○のように、画像のキーワードとなるハッシュタグを３つ程度記載してください" , rows: "8" %>
 
 
     <%= form.submit "SEND" %>
   <% end %>
+  <br>
+  <br>
+  <div class="caution">
+    <p>・投稿できる画像は、自身で撮影した写真や自身で作成したオリジナルの画像に限ります。</p>
+    <br>
+    <p>・投稿した画像が他者の著作権を侵害していた場合、その一切の責任はすべて投稿者が負うものとなります。</p>
+    <br>
+    <p>・画像を投稿した時点で、自身が所有するその画像の著作権を手放し、フリー画像素材となることを承諾したものとします。</p>
+  </div>
   
 </div>
 
