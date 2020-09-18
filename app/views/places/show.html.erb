@@ -8,19 +8,27 @@
       
     </div>
     <div>
-      <%= link_to new_place_picture_path(@place),class:"newpicture" do %>
-        <i class="fas fa-camera"></i>
-      <% end %>
-      <%= link_to new_place_post_path(@place),class:"newpost" do %>
-        <i class="fas fa-pen pen_small"></i>
-      <% end %>
-      <%= link_to place_path(@place), method: :delete, local: true do %>
-        <i class="fas fa-trash-alt"></i>
+      <% if user_signed_in? && current_user.id = @place.user_id %>
+        <%= link_to place_path(@place), method: :delete, local: true do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
       <% end %>
     </div>
   </div>
   <div class="thread">
     <div class="left_thread">
+      <div class="left_thread__header">
+        <p>chat space</P>
+        <% if user_signed_in? %>
+          <%= link_to new_place_post_path(@place),class:"newpost" do %>
+            <i class="fas fa-pen pen_small"></i>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, class: "newpost" do %>
+            <i class="fas fa-pen pen_small"></i>
+          <% end %>
+        <% end %>
+      </div>
       <% @place.posts.each do |p| %>
         <div class="posts">
           <div class="post">
@@ -33,6 +41,18 @@
       <% end %>
     </div>
     <div class="right_thread">
+      <div class="right_thread__header">
+        <p>picture space</p>
+        <% if user_signed_in? %>
+          <%= link_to new_place_picture_path(@place),class:"newpicture" do %>
+            <i class="fas fa-camera"></i>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, class: "newpicture" do %>
+            <i class="fas fa-camera"></i>
+          <% end %>
+        <% end %>
+      </div>
       <% @place.pictures.each do |p| %>
         <div>
           <div class="picture_box">

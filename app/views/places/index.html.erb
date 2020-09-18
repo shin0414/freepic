@@ -2,9 +2,16 @@
 <div class= "sub_header">
   <div class= "sub_left">
     <p>スレッド一覧</p>
-    <%= link_to new_place_path,class:"newplace" do %>
-      <i class="fas fa-plus"></i>
+    <% if user_signed_in? %>
+      <%= link_to new_place_path,class:"newplace" do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path, class: "newplace" do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
     <% end %>
+      
   </div>
   <p class= "sub_right">pick up pictures</P>
 </div>

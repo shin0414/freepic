@@ -1,7 +1,7 @@
 <div class="postform">
   <%= form_with(model: [@place,@post], local: true) do |form| %>
     <h3>新規投稿</h3>
-    <%= form.text_area :text, placeholder: "text" , rows: "10" %>
+    <%= form.text_area :text, placeholder: "text" , rows: "7" %>
 
     <%= form.submit "SEND" %>
   <% end %>
