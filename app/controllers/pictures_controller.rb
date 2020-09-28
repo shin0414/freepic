@@ -9,9 +9,6 @@ class PicturesController < ApplicationController
     @picture = @place.pictures.find(params[:id])
   end
 
-  
-
-  
 
   def new
     @picture = Picture.new
@@ -29,6 +26,12 @@ class PicturesController < ApplicationController
       flash.now[:alert] = '投稿に失敗しました'
       render :new
     end
+  end
+
+  def destroy
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    redirect_to root_path
   end
 
   private

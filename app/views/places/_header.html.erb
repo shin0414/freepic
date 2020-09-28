@@ -6,7 +6,7 @@
   <div class="header__2">
     <%= form_with(url: search_tags_path, local: true, method: :get, class: "search-form") do |form| %>
       <p>画像検索</p>
-      <%= form.text_field :keyword, placeholder: "タグを検索する", class: "search-input" %>
+      <%= form.text_field :keyword, placeholder: "タグで検索する", class: "search-input" %>
       <%= form.submit "検索", class: "search-btn" %>
     <% end %>
       

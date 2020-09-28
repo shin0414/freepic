@@ -1,4 +1,21 @@
 /* place indexのcss */
+.introduction {
+  height: 100px;
+  background-color: silver;
+  text-align: center;
+  padding: 10px 10px 5px 10px;
+  border-bottom: solid lightgray;
+  h1 {
+    font-size: 40px;
+    color: rgb(132, 114, 175);
+    font-family: 'HiraMinPro-W6';
+    margin-bottom: 5px;
+  }
+  p {
+    color: white;
+    font-family: 'HiraMinPro-W6';
+  }
+}
 .sub_header {
   display: flex;
   .sub_left {
@@ -17,7 +34,7 @@
     .newplace {
       margin-right: 30px;
       position: relative;
-      i {
+      .fas {
         font-size: 0.7em;
         position: absolute;
         right: 5px;
@@ -115,6 +132,39 @@
         font-size: 36px;
       }
     }
+    .post {
+      max-width: 90%;
+      border-width: 1px;
+      display: inline-block;
+      border-style: none solid solid none;
+      border-color: #ddd;
+      background-color: #efefef;
+      margin-left: 10px;
+      margin-bottom: 8px;
+      padding: 8px;
+      &__child {
+        
+        display: flex;
+        &__left {
+          
+          .timestamp {
+            color: gray;
+          }
+          .post_text {
+            color: black;
+            word-break: break-all;
+          }
+        }
+        &__right {
+          i {
+            color: dimgrey;
+            font-size: 20px;
+            margin-left: 20px;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
   }
   .right_thread {
     width: 50vw;
@@ -136,22 +186,7 @@
       }
     }
   }
-  .post {
-    border-width: 1px;
-    display: inline-block;
-    border-style: none solid solid none;
-    border-color: #ddd;
-    background-color: #efefef;
-    margin-left: 10px;
-    margin-bottom: 8px;
-    padding: 8px;
-    &__child {
-      .timestamp {
-        color: gray;
-      }
-    }
-    
-  }
+  
   .picture_box {
     border-width: 1px;
     display: inline-block;

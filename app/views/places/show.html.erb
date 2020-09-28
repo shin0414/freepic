@@ -8,7 +8,7 @@
       
     </div>
     <div>
-      <% if user_signed_in? && current_user.id = @place.user_id %>
+      <% if user_signed_in? && current_user.id == @place.user_id %>
         <%= link_to place_path(@place), method: :delete, local: true do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
@@ -33,8 +33,17 @@
         <div class="posts">
           <div class="post">
             <div class="post__child">
-              <p class="timestamp"><%= p.user.nickname %>&nbsp;&nbsp;&nbsp;(<%= p.updated_at %>)</p>
-              <%= p.text %>
+              <div class="post__child__left">
+                <p class="timestamp"><%= p.user.nickname %>&nbsp;&nbsp;&nbsp;(<%= p.updated_at %>)</p>
+                <p class="post_text"><%= p.text %></p>
+              </div>
+              <div class="post__child__right">
+                <% if user_signed_in? && current_user.id == p.user_id %>
+                  <%= link_to place_post_path(@place.id, p.id), method: :delete, local: true do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>

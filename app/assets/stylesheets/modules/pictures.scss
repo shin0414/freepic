@@ -1,9 +1,30 @@
+// picture showのcss
+.pic_header {
+  display: flex;
+  justify-content: space-between;
+  background-color: lightgray;
+  height: 50px;
+  .pic_info {
+    font-size: 30px;
+    color: white;
+  }
+  .pic_destroy {
+    margin-right: 30px;
+  }
+  
+}
+
 .image {
-  min-height: calc(100vh - 130px);
+  min-height: calc(100vh - 180px);
+  
   padding: 20px;
   text-align: center;
   background-color: lightgray;
+  img {
+    max-width: 100%;
+  }
 }
+
 
 
 // picture newのcss
