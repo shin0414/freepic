@@ -20,6 +20,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = @place.posts.find(params[:id])
+    @post.destroy
+    redirect_to @place
+  end
+
   private
 
   def post_params

@@ -1,5 +1,5 @@
 <%= form_with(url: search_tags_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "タグを検索する", class: "search-input" %>
+  <%= form.text_field :keyword, placeholder: "タグで検索", class: "search-input" %>
   <%= form.submit "検索", class: "search-btn" %>
 <% end %>
 <div class="contents_row">
