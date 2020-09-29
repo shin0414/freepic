@@ -17,14 +17,14 @@ class PicturesController < ApplicationController
   end
 
   def create
-    picture = Picture.create(picture_params)
+    @picture = Picture.create(picture_params)
 
-    if picture.save
+    if @picture.save
       redirect_to @place
     else
-      @posts = @place.posts
+      redirect_to @place
+     
       flash.now[:alert] = '投稿に失敗しました'
-      render :new
     end
   end
 

@@ -1,4 +1,5 @@
 class Picture < ApplicationRecord
+  validates :src, presence: true
   belongs_to :place
   belongs_to :user
   has_many :picture_tags, dependent: :destroy
